@@ -1,8 +1,7 @@
 import express from "express";
 import isValidId from "../helper/isValidId.js";
-import getAllProducts from "../controllers/getAllProducts.js";
-import getOneProduct from "../controllers/getOneProduct.js";
-import { Product } from "../models/product.js";
+import getAllProducts from "../controllers/products/getAllProducts.js";
+import getOneProduct from "../controllers/products/getOneProduct.js";
 
 const productsRouter = express.Router();
 

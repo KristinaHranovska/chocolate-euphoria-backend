@@ -1,5 +1,5 @@
-import HttpError from "../helper/HttpError.js";
-import { Product } from "../models/product.js";
+import HttpError from "../../helper/HttpError.js";
+import { Product } from "../../models/product.js";
 
 const getOneProduct = async (req, res, next) => {
     try {
