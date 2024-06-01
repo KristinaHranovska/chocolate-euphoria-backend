@@ -166,7 +166,7 @@ If you would like to contribute to this project, please follow these steps:
 
 ## Deployment
 
-The code is deployed using Render.com. You can access the deployed application at:
+The code is deployed using [render.com](https://render.com/). You can access the deployed application at:
 
 ```arduino
 https://chocolate-euphoria-backend.onrender.com
