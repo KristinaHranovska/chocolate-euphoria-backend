@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose';
-// import { mongooseError } from '../helper/mongooseError.js';
 
 const productShema = new Schema({
     productName: {
