@@ -13,7 +13,7 @@ Chocolate Euphoria Backend is a RESTful API built with `Node.js` and `Express.js
   - [Subscribe](#subscribe)
 - [Environment Variables](#environment-variables)
 - [Contributing](#contributing)
-- [License](#license)
+- [Deployment](#deployment)
 
 ## Installation
 
@@ -164,10 +164,10 @@ If you would like to contribute to this project, please follow these steps:
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a new Pull Request.
 
-## License
+## Deployment
 
-This project is licensed under the MIT License.
+The code is deployed using Render.com. You can access the deployed application at:
 
-```go
-This `README.md` file includes basic information about your project, how to install and use it, available API routes, environment variable settings, and modification instructions and license. You can edit or add to this file to suit your specific requirements and project details.
+```arduino
+https://chocolate-euphoria-backend.onrender.com
 ```
