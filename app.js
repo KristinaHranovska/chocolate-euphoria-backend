@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config"
 import productsRouter from "./routes/productsRouter.js";
 import reviewsRouter from "./routes/reviewsRouter.js";
+import subscribeRouter from "./routes/subscribeRouter.js";
 
 export const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/products", productsRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/subscribe", subscribeRouter);
 
 app.use((_, res) => {
     res.status(404).json({ message: "Route not found" });
