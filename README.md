@@ -41,9 +41,9 @@ To interact with the API, you can use tools like `Postman` or `cURL`. Below are 
 
 The API is documented using `Swagger`. After starting the server, you can access the `Swagger UI` at:
 
-    ```arduino
-    https://chocolate-euphoria-backend.onrender.com/api-docs
-    ```
+```arduino
+https://chocolate-euphoria-backend.onrender.com/api-docs
+```
 
 ## Routes
 
@@ -55,7 +55,7 @@ The API is documented using `Swagger`. After starting the server, you can access
   GET /products
   ```
 
-  Response:
+Response:
 
 ```json
 [
@@ -86,3 +86,88 @@ The API is documented using `Swagger`. After starting the server, you can access
   Parameters:
 
   - `id` (string): The ID of the product.
+
+# Reviews
+
+- Get all reviews
+
+```http
+GET /reviews
+```
+
+Response:
+
+```json
+[
+  {
+    "_id": "665b04985a6b6fa18a935f59",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "(12) 345-6789",
+    "comment": "Great chocolate! Highly recommend."
+  }
+]
+```
+
+- Create a new review
+
+```http
+POST /reviews
+```
+
+Request body:
+
+```json
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "(12) 345-6789",
+  "comment": "Great chocolate! Highly recommend."
+}
+```
+
+# Subscribe
+
+- Subscribe a user by email
+
+```http
+POST /subscribe
+```
+
+Request body:
+
+```json
+{
+  "email": "user@example.com"
+}
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory of your project and add the following environment variables:
+
+```makefile
+DB_HOST=your_mongodb_connection_string
+PORT=3000
+```
+
+Replace `your_mongodb_connection_string` with your actual MongoDB connection string.
+
+## Contributing
+
+If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature-branch).
+3. Make your changes.
+4. Commit your changes (git commit -m 'Add some feature').
+5. Push to the branch (git push origin feature-branch).
+6. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
+
+```go
+This `README.md` file includes basic information about your project, how to install and use it, available API routes, environment variable settings, and modification instructions and license. You can edit or add to this file to suit your specific requirements and project details.
+```
