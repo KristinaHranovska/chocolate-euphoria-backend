@@ -8,8 +8,7 @@ import reviewsRouter from "./routes/reviewsRouter.js";
 import subscribeRouter from "./routes/subscribeRouter.js";
 
 export const app = express();
-const { DB_HOST } = process.env;
-const PORT = process.env.PORT || 4000;
+const { DB_HOST, PORT } = process.env;
 
 app.use(morgan("tiny"));
 app.use(cors());
