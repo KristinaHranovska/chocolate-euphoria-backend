@@ -20,6 +20,10 @@ const reviewShema = new Schema({
     comment: {
         type: String,
         required: true,
+    },
+    published: {
+        type: Boolean,
+        default: false,
     }
 }, { versionKey: false });
 
@@ -30,6 +34,7 @@ export const createReviewSchema = Joi.object({
     email: Joi.string().required(),
     phone: Joi.string(),
     comment: Joi.string().required(),
+    published: Joi.boolean(),
 })
 
 export const Review = model('review', reviewShema);
