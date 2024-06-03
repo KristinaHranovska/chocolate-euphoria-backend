@@ -16,7 +16,7 @@ const reviewShema = new Schema({
     phone: {
         type: String,
         match: [valueNumber, 'Invalid phone number format. Use XX-XXX-XXXX'],
-        default: "22-333-4444",
+        default: "",
     },
     comment: {
         type: String,
