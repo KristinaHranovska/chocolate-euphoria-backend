@@ -16,7 +16,7 @@ const reviewShema = new Schema({
     phone: {
         type: String,
         match: [valueNumber, 'Invalid phone number format. Use XX-XXX-XXXX'],
-        default: "",
+        default: null,
     },
     comment: {
         type: String,
@@ -37,7 +37,7 @@ reviewShema.post('save', mongooseError);
 export const createReviewSchema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().required(),
-    phone: Joi.string(),
+    phone: Joi.string().allow(null),
     comment: Joi.string().required(),
     published: Joi.boolean(),
     photo: Joi.string()
