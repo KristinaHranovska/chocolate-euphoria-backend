@@ -37,7 +37,7 @@ reviewShema.post('save', mongooseError);
 export const createReviewSchema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().required(),
-    phone: Joi.string().allow(null).required(false),
+    phone: Joi.string().allow(null).empty(''),
     comment: Joi.string().required(),
     published: Joi.boolean(),
     photo: Joi.string()
