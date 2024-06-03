@@ -25,6 +25,10 @@ const reviewShema = new Schema({
     published: {
         type: Boolean,
         default: false,
+    },
+    photo: {
+        type: String,
+        default: "https://res.cloudinary.com/dntbkzhtq/image/upload/v1717414356/picture_el05gj.webp",
     }
 }, { versionKey: false });
 
@@ -36,6 +40,7 @@ export const createReviewSchema = Joi.object({
     phone: Joi.string(),
     comment: Joi.string().required(),
     published: Joi.boolean(),
+    photo: Joi.string()
 })
 
 export const Review = model('review', reviewShema);
