@@ -16,6 +16,7 @@ const reviewShema = new Schema({
     phone: {
         type: String,
         match: [valueNumber, 'Invalid phone number format. Use (XX) XXX-XXXX'],
+        default: "absent",
     },
     comment: {
         type: String,
