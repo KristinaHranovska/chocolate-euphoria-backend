@@ -15,7 +15,7 @@ const orderUserSchema = new Schema({
     phone: { type: String, match: [valueNumber, 'Invalid phone number format. Use XX-XXX-XXXX'], required: true, },
     selectRegion: { type: String, default: null, },
     selectCity: { type: String, default: null, },
-    comment: { type: String, match: [commetRegax, 'A comment can only contain Latin characters, numbers, and symbols .,!?/-"():;'], maxLength: 300 },
+    comment: { type: String, match: [commetRegax, 'A comment can only contain Latin characters, numbers, and symbols .,!?/-"():;'], maxLength: 300, default: null, },
 }, { _id: false });
 
 const orderSchema = new Schema({
@@ -54,7 +54,7 @@ export const createOrderSchema = Joi.object({
         phone: Joi.string().required(),
         selectRegion: Joi.string().allow(null).empty(''),
         selectCity: Joi.string().allow(null).empty(''),
-        comment: Joi.string().max(300).pattern(commetRegax),
+        comment: Joi.string().allow(null).empty('').max(300).pattern(commetRegax),
     }).required(),
     order: Joi.array().items(joiOrderItemSchema).required(),
     totalPrice: Joi.number().required()
