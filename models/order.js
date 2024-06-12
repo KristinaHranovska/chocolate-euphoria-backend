@@ -41,7 +41,7 @@ orderSchema.post('save', mongooseError);
 
 export const Order = model('order', orderSchema);
 
-const joiOrderItemSchema = Joi.array({
+const joiOrderItemSchema = Joi.object({
     nameProduct: Joi.string().required(),
     quantity: Joi.number().required(),
     total: Joi.string().required()
