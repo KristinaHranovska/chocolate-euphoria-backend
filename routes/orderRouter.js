@@ -7,62 +7,6 @@ const orderRouter = express.Router();
 
 /**
  * @swagger
- * components:
- *   schemas:
- *     OrderItem:
- *       type: object
- *       properties:
- *         nameProduct:
- *           type: string
- *           description: Name of the product
- *         quantity:
- *           type: number
- *           description: Quantity of the product
- *         total:
- *           type: string
- *           description: Total price for the product
- *     Order:
- *       type: object
- *       required:
- *         - firstName
- *         - lastName
- *         - phone
- *         - orderItems
- *         - totalPrice
- *       properties:
- *         firstName:
- *           type: string
- *           description: First name of the customer
- *         lastName:
- *           type: string
- *           description: Last name of the customer
- *         phone:
- *           type: string
- *           description: Phone number of the customer
- *         selectRegion:
- *           type: string
- *           description: Selected region
- *         selectCity:
- *           type: string
- *           description: Selected city
- *         comment:
- *           type: string
- *           description: Comment for the order
- *         status:
- *           type: string
- *           description: Status of the order
- *           default: Order accepted
- *         orderItems:
- *           type: array
- *           items:
- *             $ref: '#/components/schemas/OrderItem'
- *         totalPrice:
- *           type: number
- *           description: Total price for the order
- */
-
-/**
- * @swagger
  * /orders:
  *   post:
  *     summary: Creates a new order
@@ -84,6 +28,65 @@ const orderRouter = express.Router();
  *         description: Bad request
  */
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     OrderItem:
+ *       type: object
+ *       properties:
+ *         nameProduct:
+ *           type: string
+ *           description: The name of the product
+ *           example: Small chocolate box
+ *         quantity:
+ *           type: integer
+ *           description: The quantity of the product
+ *           example: 1
+ *         total:
+ *           type: string
+ *           description: The total price of the product
+ *           example: 190 UAN
+ *     Order:
+ *       type: object
+ *       properties:
+ *         firstName:
+ *           type: string
+ *           description: The first name of the customer
+ *           example: Krystyna
+ *         lastName:
+ *           type: string
+ *           description: The last name of the customer
+ *           example: Hranovska
+ *         phone:
+ *           type: string
+ *           description: The phone number of the customer
+ *           example: 12-456-7890
+ *         selectRegion:
+ *           type: string
+ *           description: The selected region
+ *           example: Zhytomyr region
+ *         selectCity:
+ *           type: string
+ *           description: The selected city
+ *           example: Malyn
+ *         comment:
+ *           type: string
+ *           description: A comment from the customer
+ *           example: Please, don't call me
+ *         status:
+ *           type: string
+ *           description: The status of the order
+ *           example: Order accepted
+ *         orderItems:
+ *           type: array
+ *           items:
+ *             $ref: '#/components/schemas/OrderItem'
+ *         totalPrice:
+ *           type: number
+ *           description: The total price of the order
+ *           example: 610
+ */
 
 orderRouter.post('/', validateBody(createOrderSchema), postOrders);
 
