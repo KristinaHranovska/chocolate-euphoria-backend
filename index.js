@@ -9,6 +9,7 @@ import swaggerUi from 'swagger-ui-express';
 import productsRouter from "./routes/productsRouter.js";
 import reviewsRouter from "./routes/reviewsRouter.js";
 import subscribeRouter from "./routes/subscribeRouter.js";
+import orderRouter from "./routes/orderRouter.js";
 
 export const app = express();
 const { DB_HOST, PORT } = process.env;
@@ -22,6 +23,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use("/products", productsRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/subscribe", subscribeRouter);
+app.use("/order", orderRouter);
 
 app.use((_, res) => {
     res.status(404).json({ message: "Route not found" });
