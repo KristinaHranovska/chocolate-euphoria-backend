@@ -85,7 +85,7 @@ const orderRouter = express.Router();
  *         totalPrice:
  *           type: number
  *           description: The total price of the order
- *           example: 610
+ *           example: 190
  */
 
 orderRouter.post('/', validateBody(createOrderSchema), postOrders);
