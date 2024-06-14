@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import Joi from 'joi';
-import { commetRegax, valueNumber } from '../helper/constant.js';
+import { commetRegax, formatRegex, valueNumber } from '../helper/constant.js';
 import mongooseError from '../helper/mongooseError.js';
 
 const orderItemSchema = new Schema({
@@ -13,6 +13,7 @@ const orderUserSchema = new Schema({
     firstName: { type: String, required: true, },
     lastName: { type: String, required: true, },
     phone: { type: String, match: [valueNumber, 'Invalid phone number format. Use XX-XXX-XXXX'], required: true, },
+    email: { type: String, match: [formatRegex, 'Invalid email format'], required: true, },
     selectRegion: { type: String, default: "", },
     selectCity: { type: String, default: "", },
     comment: { type: String, match: [commetRegax, 'A comment can only contain Latin characters, numbers, and symbols .,!?/-"():;'], maxLength: 300, default: "", },
@@ -52,6 +53,7 @@ export const createOrderSchema = Joi.object({
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
         phone: Joi.string().required(),
+        email: Joi.string().required(),
         selectRegion: Joi.string().empty(''),
         selectCity: Joi.string().empty(''),
         comment: Joi.string().empty('').max(300).pattern(commetRegax),
