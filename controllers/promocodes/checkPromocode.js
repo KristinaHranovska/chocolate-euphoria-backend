@@ -7,7 +7,7 @@ const checkPromocode = async (req, res, next) => {
         const foundPromocode = await Promocode.findOne({ promocode });
 
         if (!foundPromocode) {
-            return res.status(404).json({ message: 'No promocode found' });
+            return res.status(200).json({ message: "No promocode found" });
         }
 
         res.status(200).json({ percent: foundPromocode.percent });
