@@ -10,7 +10,7 @@ const postOrders = async (req, res, next) => {
         const emailData = {
             to: result.userContact.email,
             subject: 'Order Confirmation',
-            // text: `Dear ${result.userContact.firstName},\nWe have received your order. Our manager will contact you soon.\nTotal Price: ${result.totalPrice} UAN`,
+            text: `Dear ${result.userContact.firstName},\nWe have received your order. Our manager will contact you soon.\nTotal Price: ${result.totalPrice} UAN`,
             html: await renderTemplate('orderConfirmationTemplate', result)
         };
 
