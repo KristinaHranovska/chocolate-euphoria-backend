@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900&display=swap");
+      body {
+        font-family: "Dosis", sans-serif;
+        color: #111111;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #fd9222;
+        border-radius: 10px;
+      }
+      .header {
+        background-color: #fd9222;
+        padding: 10px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .content {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .order-item {
+        margin: 10px 0;
+      }
+      .footer {
+        margin-top: 20px;
+        text-align: center;
+        background-color: #f8f8f8;
+      }
+    </style>
+    <title>Order Confirmation</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Order Confirmation</h1>
+      </div>
+      <div class="content">
+        <p>Dear <%= userContact.firstName %> <%= userContact.lastName %>,</p>
+        <p>We have received your order. Here are the details:</p>
+        <div>
+          <% order.forEach(item => { %>
+          <div class="order-item">
+            <p><strong>Product:</strong> <%= item.nameProduct %></p>
+            <img
+              src="<%= item.photo %>"
+              alt="<%= item.nameProduct %>"
+              width="100"
+            />
+            <p><strong>Quantity:</strong> <%= item.quantity %></p>
+            <p><strong>Total:</strong> <%= item.total %></p>
+          </div>
+          <% }) %>
+        </div>
+        <p><strong>Total Price:</strong> <%= totalPrice %> UAN</p>
+      </div>
+      <div class="footer">
+        <p>Our manager will contact you soon.</p>
+        <p>Thank you for choosing Chocolate Euphoria!</p>
+      </div>
+    </div>
+  </body>
+</html>

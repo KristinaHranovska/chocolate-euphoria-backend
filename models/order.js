@@ -5,6 +5,7 @@ import mongooseError from '../helper/mongooseError.js';
 
 const orderItemSchema = new Schema({
     nameProduct: { type: String, required: true },
+    photo: { type: String, required: true },
     quantity: { type: Number, required: true },
     total: { type: String, required: true }
 }, { _id: false });
@@ -44,6 +45,7 @@ export const Order = model('order', orderSchema);
 
 const joiOrderItemSchema = Joi.object({
     nameProduct: Joi.string().required(),
+    photo: Joi.string().required(),
     quantity: Joi.number().required(),
     total: Joi.string().required()
 });
