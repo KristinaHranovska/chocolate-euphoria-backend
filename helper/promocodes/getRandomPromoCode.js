@@ -1,19 +1,21 @@
-import { Promocode } from "../../models/promocode.js";
-import HttpError from "../../helper/HttpError.js";
+// import { Promocode } from "../../models/promocode.js";
+// import HttpError from "../../helper/HttpError.js";
 
-const getRandomPromoCode = async () => {
-    try {
-        const promocodes = await Promocode.find();
+import promocode from "./promocode.js";
 
-        if (!promocodes || promocodes.length === 0) {
-            throw HttpError(404, "No promo codes found");
-        }
+const getRandomPromoCode = () => {
+    // try {
+    //     const promocodes = await Promocode.find();
 
-        const randomIndex = Math.floor(Math.random() * promocodes.length);
-        return promocodes[randomIndex].promocode;
-    } catch (error) {
-        throw error;
-    }
+    //     if (!promocodes || promocodes.length === 0) {
+    //         throw HttpError(404, "No promo codes found");
+    //     }
+
+    const randomIndex = Math.floor(Math.random() * promocode.length);
+    return promocode[randomIndex];
+    // } catch (error) {
+    //     throw error;
+    // }
 }
 
 export default getRandomPromoCode;
