@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900&display=swap");
       body {
-        font-family: "Dosis", sans-serif;
+        font-family: Georgia, "Times New Roman", Times, serif, sans-serif;
         color: #111111;
       }
+      p {
+        margin: 0;
+      }
       .container {
-        width: 80%;
+        width: 50%;
         margin: 0 auto;
-        padding: 20px;
+        overflow: hidden;
         border: 1px solid #fd9222;
         border-radius: 10px;
       }
@@ -25,16 +25,38 @@
         color: #ffffff;
       }
       .content {
+        background-color: #dddddd;
+        font-size: 16px;
+        padding: 20px 0;
+      }
+      .hello {
         text-align: center;
-        margin-top: 20px;
+      }
+      .order {
+        background-color: #ffffff;
+        border: 1px solid #fd9222;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
       }
       .order-item {
+        display: flex;
+        align-items: center;
         margin: 10px 0;
       }
+      .product {
+        margin-left: 10px;
+        padding-top: 10px;
+      }
+      .total {
+        padding-right: 20px;
+        text-align: right;
+      }
       .footer {
-        margin-top: 20px;
+        font-style: 12px;
         text-align: center;
         background-color: #f8f8f8;
+        padding: 10px;
       }
     </style>
     <title>Order Confirmation</title>
@@ -45,27 +67,32 @@
         <h1>Order Confirmation</h1>
       </div>
       <div class="content">
-        <p>Dear <%= userContact.firstName %> <%= userContact.lastName %>,</p>
-        <p>We have received your order. Here are the details:</p>
-        <div>
+        <div class="hello">
+          <p>Dear <%= userContact.firstName %> <%= userContact.lastName %>,</p>
+          <p>We have received your order. Here are the details:</p>
+        </div>
+        <div class="order">
           <% order.forEach(item => { %>
           <div class="order-item">
-            <p><strong>Product:</strong> <%= item.nameProduct %></p>
             <img
               src="<%= item.photo %>"
               alt="<%= item.nameProduct %>"
               width="100"
             />
-            <p><strong>Quantity:</strong> <%= item.quantity %></p>
-            <p><strong>Total:</strong> <%= item.total %></p>
+            <div class="product">
+              <p><strong>Product:</strong> <%= item.nameProduct %></p>
+              <p><strong>Quantity:</strong> <%= item.quantity %></p>
+              <p><strong>Total:</strong> <%= item.total %></p>
+            </div>
           </div>
           <% }) %>
         </div>
-        <p><strong>Total Price:</strong> <%= totalPrice %> UAN</p>
+        <p class="total"><strong>Total Price:</strong> <%= totalPrice %> UAN</p>
       </div>
       <div class="footer">
         <p>Our manager will contact you soon.</p>
         <p>Thank you for choosing Chocolate Euphoria!</p>
+        <p>&copy; Copyright 2024 Chocolate Euphoria. All rights reserved.</p>
       </div>
     </div>
   </body>
