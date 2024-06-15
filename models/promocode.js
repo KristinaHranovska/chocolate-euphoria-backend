@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import Joi from 'joi';
-import { commetRegax } from '../helper/constant';
+import { commetRegax } from '../helper/constant.js';
 
 const promocodeShema = new Schema({
     promocode: {
