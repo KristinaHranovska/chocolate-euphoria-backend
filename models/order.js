@@ -33,6 +33,10 @@ const orderSchema = new Schema({
         type: Number,
         required: true
     },
+    discount: {
+        type: Number,
+        required: true
+    },
     status: {
         type: String,
         default: 'Order accepted',
@@ -61,7 +65,8 @@ export const createOrderSchema = Joi.object({
         comment: Joi.string().empty('').max(300).pattern(commetRegax),
     }).required(),
     order: Joi.array().items(joiOrderItemSchema).required(),
-    totalPrice: Joi.number().required()
+    totalPrice: Joi.number().required(),
+    discount: Joi.number().required(),
 });
 
 
