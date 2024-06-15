@@ -2,7 +2,7 @@ import { Subscribe } from "../../models/subscribe.js";
 import sendEmail from '../../helper/sendEmail.js';
 import renderTemplate from "../../helper/renderTemplate.js";
 import HttpError from "../../helper/HttpError.js";
-import getRandomPromoCode from "../../helper/promocodes/getRandomPromoCode.js";
+import getRandomPromoCode from "../promocodes/getRandomPromoCode.js";
 
 const subscribeUser = async (req, res, next) => {
     try {

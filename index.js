@@ -10,7 +10,7 @@ import productsRouter from "./routes/productsRouter.js";
 import reviewsRouter from "./routes/reviewsRouter.js";
 import subscribeRouter from "./routes/subscribeRouter.js";
 import orderRouter from "./routes/orderRouter.js";
-import promocodesRouter from "./routes/promocodesRouter.js";
+import promocodesListRouter from "./routes/promocodesListRouter.js";
 
 export const app = express();
 const { DB_HOST, PORT } = process.env;
@@ -24,7 +24,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use("/products", productsRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/subscribe", subscribeRouter);
-app.use("/promocodes", promocodesRouter);
+app.use("/promocodes", promocodesListRouter);
 app.use("/order", orderRouter);
 
 app.use((_, res) => {
