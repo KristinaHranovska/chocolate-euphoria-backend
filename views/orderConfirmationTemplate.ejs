@@ -27,7 +27,7 @@
       .content {
         background-color: #dddddd;
         font-size: 16px;
-        padding: 20px 0;
+        padding-top: 20px;
       }
       .hello {
         text-align: center;
@@ -64,6 +64,9 @@
         padding: 10px;
         color: #111111;
       }
+      .thankYou {
+        margin-bottom: 10px;
+      }
     </style>
     <title>Order Confirmation</title>
   </head>
@@ -96,8 +99,10 @@
         <p class="total"><strong>Total Price:</strong> <%= totalPrice %> UAN</p>
       </div>
       <div class="footer">
-        <p>Our manager will contact you soon.</p>
-        <p>Thank you for choosing Chocolate Euphoria!</p>
+        <div class="thankYou">
+          <p>Our manager will contact you soon.</p>
+          <p>Thank you for choosing Chocolate Euphoria!</p>
+        </div>
         <p>&copy; Copyright 2024 Chocolate Euphoria. All rights reserved.</p>
       </div>
     </div>
