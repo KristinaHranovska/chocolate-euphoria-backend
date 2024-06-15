@@ -16,7 +16,7 @@ const subscribeUser = async (req, res, next) => {
 
         const result = await Subscribe.create(req.body);
 
-        const promoCode = getRandomPromoCode();
+        const promoCode = await getRandomPromoCode();
 
         const emailData = {
             to: result.email,
