@@ -5,10 +5,14 @@ const promocodeShema = new Schema({
     promocode: {
         type: String,
     },
+    percent: {
+        type: Number,
+    }
 });
 
 export const promocodeJoiShema = Joi.object({
-    promocode: Joi.string()
+    promocode: Joi.string(),
+    percent: Joi.number(),
 });
 
 export const Promocode = model('promocode', promocodeShema);
