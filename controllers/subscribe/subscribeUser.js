@@ -1,8 +1,8 @@
 import { Subscribe } from "../../models/subscribe.js";
-// import sendEmail from '../../helper/sendEmail.js';
-// import renderTemplate from "../../helper/renderTemplate.js";
+import sendEmail from '../../helper/sendEmail.js';
+import renderTemplate from "../../helper/renderTemplate.js";
 import HttpError from "../../helper/HttpError.js";
-// import getRandomPromoCode from "../../helper/promocodes/getRandomPromoCode.js";
+import getRandomPromoCode from "../../helper/promocodes/getRandomPromoCode.js";
 
 const subscribeUser = async (req, res, next) => {
     try {
@@ -16,16 +16,16 @@ const subscribeUser = async (req, res, next) => {
 
         const result = await Subscribe.create(req.body);
 
-        // const promoCode = await getRandomPromoCode();
+        const promoCode = await getRandomPromoCode();
 
-        // const emailData = {
-        //     to: result.email,
-        //     subject: 'Subscription confirmation',
-        //     text: 'Thanks for subscribing to Chocolate Euphoria! For this, we give you a promo code for a 10% discount: ' + promoCode,
-        //     html: await renderTemplate('emailTemplateSubscribe', { promoCode })
-        // };
+        const emailData = {
+            to: result.email,
+            subject: 'Subscription confirmation',
+            text: 'Thanks for subscribing to Chocolate Euphoria! For this, we give you a promo code for a 10% discount: ' + promoCode,
+            html: await renderTemplate('emailTemplateSubscribe', { promoCode })
+        };
 
-        // await sendEmail(emailData);
+        await sendEmail(emailData);
 
         res.status(201).json(result);
     } catch (error) {
