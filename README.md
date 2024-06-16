@@ -214,7 +214,7 @@ Request body:
     }
   ],
   "totalPrice": 132,
-  "discount": 10,
+  "discount": 0,
   "status": "Order accepted"
 }
 ```

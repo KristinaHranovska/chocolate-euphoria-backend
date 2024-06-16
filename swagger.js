@@ -1,23 +1,8 @@
-import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import fs from 'fs';
+import path from 'path';
 
+const swaggerFilePath = path.resolve(__dirname, 'swagger.json');
+const swaggerDocument = JSON.parse(fs.readFileSync(swaggerFilePath, 'utf8'));
 
-const options = {
-    definition: {
-        openapi: '3.0.0',
-        info: {
-            title: 'Chocolate Euphoria API',
-            version: '1.0.0',
-            description: 'API for Chocolate Euphoria',
-        },
-        servers: [
-            {
-                url: 'https://chocolate-euphoria-backend.onrender.com',
-            },
-        ],
-    },
-    apis: ['./routes/*.js'],
-};
-
-const specs = swaggerJsdoc(options);
-
-export default specs;
+export default swaggerDocument;

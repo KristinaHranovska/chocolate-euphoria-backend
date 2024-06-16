@@ -3,7 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import "dotenv/config"
 import mongoose from "mongoose";
-import specs from './swagger.js';
+import swaggerDocument from './swagger.js';
 import swaggerUi from 'swagger-ui-express';
 
 import productsRouter from "./routes/productsRouter.js";
@@ -19,7 +19,7 @@ app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/products", productsRouter);
 app.use("/reviews", reviewsRouter);
