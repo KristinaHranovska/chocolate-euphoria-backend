@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import "dotenv/config"
+import "dotenv/config";
 import mongoose from "mongoose";
 import swaggerDocument from './swagger.js';
 import swaggerUi from 'swagger-ui-express';
@@ -12,7 +12,7 @@ import subscribeRouter from "./routes/subscribeRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 import promocodesListRouter from "./routes/promocodesListRouter.js";
 
-export const app = express();
+const app = express();
 const { DB_HOST, PORT } = process.env;
 
 app.use(morgan("tiny"));
@@ -47,4 +47,4 @@ mongoose.connect(DB_HOST)
     .catch(error => {
         console.log(error.message);
         process.exit(1);
-    })
+    });
