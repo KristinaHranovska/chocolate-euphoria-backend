@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Chocolate Euphoria API",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "description": "API for Chocolate Euphoria"
     },
     "servers": [
@@ -31,7 +31,7 @@
                 }
             }
         },
-        "/products/{id": {
+        "/products/{id}": {
             "get": {
                 "summary": "Get a product by ID",
                 "parameters": [
