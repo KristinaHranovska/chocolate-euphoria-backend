@@ -3,10 +3,10 @@
     "info": {
         "title": "Chocolate Euphoria API 🍫",
         "version": "2.0.0",
-        "description": "REST API for managing products, reviews, orders, subscriptions and promo codes for the Chocolate Euphoria online store",
+        "description": "REST API for managing products, reviews, orders, subscriptions and promocodes for the Chocolate Euphoria online store",
         "license": {
             "name": "Pet - project",
-            "url": "https://chocolate-euphoria.vercel.app"
+            "url": "https://github.com/KristinaHranovska/project-chocolate-euphoria"
         }
     },
     "servers": [
