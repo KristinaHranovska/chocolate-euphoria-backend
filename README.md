@@ -1,6 +1,6 @@
 # Chocolate Euphoria Backend
 
-Chocolate Euphoria Backend is a RESTful API built with `Node.js` and `Express.js`, designed to manage products and reviews for a chocolate store.
+Chocolate Euphoria Backend is a RESTful API built with `Node.js` and `Express.js`, designed to manage products, reviews, subscriptions, and promocodes for a chocolate store.
 
 ## Table of Contents
 
@@ -11,6 +11,8 @@ Chocolate Euphoria Backend is a RESTful API built with `Node.js` and `Express.js
   - [Products](#products)
   - [Reviews](#reviews)
   - [Subscribe](#subscribe)
+  - [Promocodes](#promocodes)
+  - [Orders](#orders)
 - [Environment Variables](#environment-variables)
 - [Contributing](#contributing)
 - [Deployment](#deployment)
@@ -139,6 +141,81 @@ Request body:
 ```json
 {
   "email": "user@example.com"
+}
+```
+
+### Promocodes
+
+- Get a random promocode
+
+```http
+GET /promocodes
+```
+
+Request body:
+
+```json
+{
+  "promocode": "SAVE10",
+  "percent": 10
+}
+```
+
+- Check a promocode
+
+```http
+POST /promocodes/check
+```
+
+Request body:
+
+```json
+{
+  "promocode": "SAVE10"
+}
+```
+
+Response:
+
+```json
+{
+  "promocode": "SAVE10",
+  "percent": 10
+}
+```
+
+### Order
+
+- Create a new order
+
+```http
+POST /order
+```
+
+Request body:
+
+```json
+{
+  "userContact": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phone": "12-345-6789",
+    "email": "john.doe@example.com",
+    "selectRegion": "Some Region",
+    "selectCity": "Some City",
+    "comment": "Please deliver between 9 AM to 5 PM"
+  },
+  "order": [
+    {
+      "nameProduct": "Lime & Sea Salt dark chocolate",
+      "photo": "https://res.cloudinary.com/dntbkzhtq/image/upload/v1715618947/limeAmdS...",
+      "quantity": 2,
+      "total": "132 UAH"
+    }
+  ],
+  "totalPrice": 132,
+  "discount": 10,
+  "status": "Order accepted"
 }
 ```
 

@@ -7,29 +7,6 @@ const orderRouter = express.Router();
 
 /**
  * @swagger
- * /orders:
- *   post:
- *     summary: Creates a new order
- *     tags: [Orders]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Order'
- *     responses:
- *       201:
- *         description: The order was created successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Order'
- *       400:
- *         description: Bad request
- */
-
-/**
- * @swagger
  * components:
  *   schemas:
  *     OrderItem:
@@ -37,55 +14,96 @@ const orderRouter = express.Router();
  *       properties:
  *         nameProduct:
  *           type: string
- *           description: The name of the product
- *           example: Small chocolate box
+ *           description: Name of the product
+ *         photo:
+ *           type: string
+ *           description: URL of the product photo
  *         quantity:
- *           type: integer
- *           description: The quantity of the product
- *           example: 1
+ *           type: number
+ *           description: Quantity of the product
  *         total:
  *           type: string
- *           description: The total price of the product
- *           example: 190 UAN
- *     Order:
+ *           description: Total price for this item
+ *       required:
+ *         - nameProduct
+ *         - photo
+ *         - quantity
+ *         - total
+ *     OrderUser:
  *       type: object
  *       properties:
  *         firstName:
  *           type: string
- *           description: The first name of the customer
- *           example: Krystyna
+ *           description: First name of the user
  *         lastName:
  *           type: string
- *           description: The last name of the customer
- *           example: Hranovska
+ *           description: Last name of the user
  *         phone:
  *           type: string
- *           description: The phone number of the customer
- *           example: 12-456-7890
+ *           description: Phone number of the user
+ *         email:
+ *           type: string
+ *           description: Email of the user
  *         selectRegion:
  *           type: string
- *           description: The selected region
- *           example: Zhytomyr region
+ *           description: User's selected region
  *         selectCity:
  *           type: string
- *           description: The selected city
- *           example: Malyn
+ *           description: User's selected city
  *         comment:
  *           type: string
- *           description: A comment from the customer
- *           example: Please, don't call me
- *         status:
- *           type: string
- *           description: The status of the order
- *           example: Order accepted
- *         orderItems:
+ *           description: Additional comments from the user
+ *       required:
+ *         - firstName
+ *         - lastName
+ *         - phone
+ *         - email
+ *     Order:
+ *       type: object
+ *       properties:
+ *         userContact:
+ *           $ref: '#/components/schemas/OrderUser'
+ *         order:
  *           type: array
  *           items:
  *             $ref: '#/components/schemas/OrderItem'
  *         totalPrice:
  *           type: number
- *           description: The total price of the order
- *           example: 190
+ *           description: Total price of the order
+ *         discount:
+ *           type: number
+ *           description: Discount applied to the order
+ *         status:
+ *           type: string
+ *           description: Status of the order
+ *       required:
+ *         - userContact
+ *         - order
+ *         - totalPrice
+ *         - discount
+ */
+
+/**
+ * @swagger
+ * /order:
+ *   post:
+ *     summary: Create a new order
+ *     tags: [Order]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Order'
+ *     responses:
+ *       200:
+ *         description: The order was successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Order'
+ *       400:
+ *         description: Bad request
  */
 
 orderRouter.post('/', validateBody(createOrderSchema), postOrders);

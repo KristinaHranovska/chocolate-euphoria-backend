@@ -11,6 +11,27 @@ const productsRouter = express.Router();
  *   schemas:
  *     Product:
  *       type: object
+ *       properties:
+ *         productName:
+ *           type: string
+ *           description: Name of the product
+ *         category:
+ *           type: string
+ *           description: Category of the product
+ *         price:
+ *           type: string
+ *           description: Price of the product
+ *         description:
+ *           type: string
+ *           description: Description of the product
+ *         compound:
+ *           type: array
+ *           items:
+ *             type: string
+ *           description: Compound of the product
+ *         photo:
+ *           type: string
+ *           description: URL of the product photo
  *       required:
  *         - productName
  *         - category
@@ -18,54 +39,17 @@ const productsRouter = express.Router();
  *         - description
  *         - compound
  *         - photo
- *       properties:
- *         _id:
- *           type: string
- *           description: The product ID
- *         productName:
- *           type: string
- *           description: The name of the product
- *         category:
- *           type: string
- *           description: The category of the product
- *         price:
- *           type: string
- *           description: The price of the product
- *         description:
- *           type: string
- *           description: A description of the product
- *         compound:
- *           type: array
- *           items:
- *             type: string
- *           description: The compound details of the product
- *         photo:
- *           type: string
- *           description: URL to the product photo
- *       example:
- *         _id: "665b04985a6b6fa18a935f59"
- *         productName: "Lime & Sea Salt dark chocolate"
- *         category: "Dark chocolate"
- *         price: "66 UAH"
- *         description: "Sea salt and chocolate is a unique combination that has completely taken..."
- *         compound: 
- *           - "Sustainably grown chocolate"
- *           - "Palm oil free & all natural ingredients"
- *           - "Recyclable packaging"
- *           - "Proudly made in York, North Yorkshire"
- *           - "Registered with The Vegan Society"
- *         photo: "https://res.cloudinary.com/dntbkzhtq/image/upload/v1715618947/limeAmdS..."
  */
 
 /**
  * @swagger
  * /products:
  *   get:
- *     summary: Returns the list of all the products
- *     tags: [Products]
+ *     summary: Get all products
+ *     tags: [Product]
  *     responses:
  *       200:
- *         description: The list of the products
+ *         description: List of all products
  *         content:
  *           application/json:
  *             schema:
@@ -73,14 +57,13 @@ const productsRouter = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Product'
  */
-productsRouter.get('/', getAllProducts);
 
 /**
  * @swagger
  * /products/{id}:
  *   get:
- *     summary: Get a product by ID
- *     tags: [Products]
+ *     summary: Get a single product by ID
+ *     tags: [Product]
  *     parameters:
  *       - in: path
  *         name: id
@@ -90,7 +73,7 @@ productsRouter.get('/', getAllProducts);
  *         description: The product ID
  *     responses:
  *       200:
- *         description: The product description by ID
+ *         description: A single product
  *         content:
  *           application/json:
  *             schema:
@@ -98,6 +81,8 @@ productsRouter.get('/', getAllProducts);
  *       404:
  *         description: Product not found
  */
+
+productsRouter.get('/', getAllProducts);
 productsRouter.get('/:id', isValidId, getOneProduct);
 
 export default productsRouter;

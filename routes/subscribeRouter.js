@@ -11,21 +11,19 @@ const subscribeRouter = express.Router();
  *   schemas:
  *     Subscribe:
  *       type: object
- *       required:
- *         - email
  *       properties:
  *         email:
  *           type: string
- *           description: The email of the subscriber
- *       example:
- *         email: "user@example.com"
+ *           description: Email of the subscriber
+ *       required:
+ *         - email
  */
 
 /**
  * @swagger
  * /subscribe:
  *   post:
- *     summary: Subscribe a user by email
+ *     summary: Subscribe a user
  *     tags: [Subscribe]
  *     requestBody:
  *       required: true
@@ -35,10 +33,15 @@ const subscribeRouter = express.Router();
  *             $ref: '#/components/schemas/Subscribe'
  *     responses:
  *       200:
- *         description: Subscription successful
+ *         description: The user was successfully subscribed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Subscribe'
  *       400:
- *         description: Invalid email format
+ *         description: Bad request
  */
+
 subscribeRouter.post('/', validateBody(createsubScribeSchema), subscribeUser);
 
 export default subscribeRouter;
