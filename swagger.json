@@ -10,10 +10,35 @@
             "url": "https://chocolate-euphoria-backend.onrender.com"
         }
     ],
+    "tags": [
+        {
+            "name": "Products",
+            "description": "Endpoints related to products"
+        },
+        {
+            "name": "Reviews",
+            "description": "Endpoints related to reviews"
+        },
+        {
+            "name": "Subscribe",
+            "description": "Endpoints related to subscriptions"
+        },
+        {
+            "name": "Promocodes",
+            "description": "Endpoints related to promocodes"
+        },
+        {
+            "name": "Order",
+            "description": "Endpoints related to orders"
+        }
+    ],
     "paths": {
         "/products": {
             "get": {
                 "summary": "Get all products",
+                "tags": [
+                    "Products"
+                ],
                 "responses": {
                     "200": {
                         "description": "A list of products",
@@ -34,6 +59,9 @@
         "/products/{id}": {
             "get": {
                 "summary": "Get a product by ID",
+                "tags": [
+                    "Products"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -61,6 +89,9 @@
         "/reviews": {
             "get": {
                 "summary": "Get all reviews",
+                "tags": [
+                    "Reviews"
+                ],
                 "responses": {
                     "200": {
                         "description": "A list of reviews",
@@ -79,6 +110,9 @@
             },
             "post": {
                 "summary": "Create a new review",
+                "tags": [
+                    "Reviews"
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -99,6 +133,9 @@
         "/subscribe": {
             "post": {
                 "summary": "Subscribe a user by email",
+                "tags": [
+                    "Subscribe"
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -119,6 +156,9 @@
         "/promocodes": {
             "get": {
                 "summary": "Get a random promocode",
+                "tags": [
+                    "Promocodes"
+                ],
                 "responses": {
                     "200": {
                         "description": "A promocode",
@@ -134,6 +174,9 @@
             },
             "post": {
                 "summary": "Check a promocode",
+                "tags": [
+                    "Promocodes"
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -154,6 +197,9 @@
         "/order": {
             "post": {
                 "summary": "Create a new order",
+                "tags": [
+                    "Order"
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
