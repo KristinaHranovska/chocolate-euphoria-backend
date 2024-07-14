@@ -1,6 +1,6 @@
 # Chocolate Euphoria Backend
 
-Chocolate Euphoria Backend is a RESTful API built with `Node.js` and `Express.js`, designed to manage products, reviews, subscriptions, and promocodes for a chocolate store.
+`Chocolate Euphoria Backend` is a RESTful API built with `Node.js` and `Express.js`, designed to manage products, reviews, subscriptions, and promocodes for a chocolate store.
 
 ## Table of Contents
 
